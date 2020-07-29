@@ -1,0 +1,19 @@
+<div class="content-area">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Tasks</h2>
+    </div>
+  </div>
+  <div class="row">
+    <clr-datagrid class="col-xs">
+      <clr-dg-column>ID</clr-dg-column>
+      <clr-dg-column>Title</clr-dg-column>
+
+      <clr-dg-row *clrDgItems="let task of tasks$ | async">
+
+        <clr-dg-cell>{{ task?.id }}</clr-dg-cell>
+        <clr-dg-cell>{{ task?.title }}</clr-dg-cell>
+      </clr-dg-row>
+    </clr-datagrid>
+  </div>
+</div>

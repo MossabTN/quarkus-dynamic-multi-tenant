@@ -16,21 +16,6 @@ Make sure you have this ports available
 - 8180
 - 5432
 
-### Configuring GraalVM and JDK 1.8+
-
-Make sure that both the `GRAALVM_HOME` and `JAVA_HOME` environment variables have
-been set, and that a JDK 1.8+ `java` command is on the path.
-
-See the [Building a Native Executable guide](https://quarkus.io/guides/building-native-image)
-for help setting up your environment.
-
-
-## Building the application
-
-Launch the Maven build on the checked out sources of this demo:
-
-> ./mvnw package
-
 ## Setup environment
 * Adding a host name in the /etc/hosts file
 ```bash
@@ -49,11 +34,10 @@ docker-compose -f src/main/docker/docker-compose.yaml up -d
 
 You should be able to access your Keycloak Server at http://localhost:8180/auth .
 ![test](login.png)
-Log in as the `admin` user to access the Keycloak Administration Console.
+Log in as admin to access the Keycloak Administration Console.
 Username should be `admin` and password `admin`.
 
 For more details, see the Keycloak documentation about how to https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm[create a new realm].
-
 
 
 ### Initialized Tenant
@@ -81,7 +65,7 @@ For more details, see the Keycloak documentation about how to https://www.keyclo
       - admin | admin
       - user | user  
 
-######DataBases:
+######Databases:
   - default:
     - maxilog-default: 
       - maxilog-default-user | maxilog-default-password
@@ -93,7 +77,7 @@ For more details, see the Keycloak documentation about how to https://www.keyclo
       - maxilog-tenant2-user | maxilog-tenant2-password
 
 ###Get an access token
-Change REALM, USERNAME and PASSWORD by the information of the realm you want to connect :
+Change `REALM`, `USERNAME` and `PASSWORD` by the information of the realm you want to connect :
 ```bash
 export access_token=$(\
     curl -X POST http://localhost:8180/auth/realms/REALM/protocol/openid-connect/token \
@@ -148,7 +132,9 @@ curl -X POST -v http://localhost:8080/api/tenants/tenant3 \
 
 This command will create realm `tenant3` and database `maxilog-tenant3`.
 
-PS: You have to add hostname to `/etc/hosts` in this case `127.0.0.1       tenant3.maxilog.io`
+PS: In this case, you have to add hostname to `/etc/hosts` :
+
+`127.0.0.1       tenant3.maxilog.io`
 
 
 ####Backend(quarkus)

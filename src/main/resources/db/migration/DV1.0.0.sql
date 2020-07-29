@@ -1,4 +1,5 @@
 create sequence hibernate_sequence;
+create sequence clientidseq start with 3;
 
 create table if not exists client (
     id                  bigint       not null constraint client_pkey primary key,

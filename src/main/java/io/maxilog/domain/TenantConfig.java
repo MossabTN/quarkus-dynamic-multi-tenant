@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class TenantConfig {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "clientIdSeq", sequenceName = "clientIdSeq", initialValue = 3)
+    @GeneratedValue(generator = "clientIdSeq")
     private Long id;
 
     @Column(nullable = false, name = "tenant_id")

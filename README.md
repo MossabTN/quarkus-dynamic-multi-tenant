@@ -1,8 +1,6 @@
 # Quarkus multi tenant
 
-In this example, we build a very simple microservice which offers angular UI two endpoints:
-* `http://localhost:8080/api/users/me`
-* `http://localhost:8080/api/users/`
+In this example, we build a very simple quarkus application:
 
 
 ## Requirements
